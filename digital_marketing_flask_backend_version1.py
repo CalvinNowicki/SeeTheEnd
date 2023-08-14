@@ -67,7 +67,7 @@ def suggest_services(client_data):
     
 def generate_email_content(client_name, product_name, product_cost, product_use):
     email_template = f"""
-Hello {client_name},
+Hello Loyal Customer!
 
 We are excited to introduce our latest product: {product_name}!
 
@@ -80,7 +80,7 @@ We believe that {product_name} will perfectly cater to your needs and offer unpa
 Order yours today and experience the difference!
 
 Warm regards,
-Your Digital Marketing Team
+{client_name}
     """
     return email_template
 
