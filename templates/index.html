@@ -159,6 +159,12 @@
             <label for="influencer_email">Influencer Email:</label>
             <input name="influencer_email" required type="email" id="influencer_email" placeholder="Enter Influencer Email">
 
+            <label for="tiktok_username">TikTok Username:</label> <!-- Added line -->
+            <input name="tiktok_username" type="text" id="tiktok_username" placeholder="Enter TikTok Username"> <!-- Added line -->
+
+            <label for="instagram_username">Instagram Username:</label> <!-- Added line -->
+            <input name="instagram_username" type="text" id="instagram_username" placeholder="Enter Instagram Username"> <!-- Added line -->
+
             <input type="button" value="Submit" onclick="submitForm()">
         </form>
     </div>
@@ -168,6 +174,8 @@
         <h3>Influencer Details</h3>
         <p><b>Name:</b> <span id="client_detail_name"></span></p>
         <p><b>Email:</b> <span id="client_detail_email"></span></p>
+        <p><b>TikTok:</b> <span id="client_detail_tiktok"></span></p> <!-- Added line -->
+        <p><b>Instagram:</b> <span id="client_detail_instagram"></span></p> <!-- Added line -->
 
         <h3>Recommended Services</h3>
         <p id="recommended_services"></p>
@@ -190,6 +198,8 @@
                 .then(data => {
                     document.getElementById('client_detail_name').textContent = data.influencer.influencer_name;
                     document.getElementById('client_detail_email').textContent = data.influencer.influencer_email;
+                    document.getElementById('client_detail_tiktok').textContent = data.influencer.tiktok_username;  // Added line
+                    document.getElementById('client_detail_instagram').textContent = data.influencer.instagram_username;  // Added line
                     document.getElementById('recommended_services').textContent = data.services;
                     document.getElementById('email_content').textContent = data.email_content;
 
