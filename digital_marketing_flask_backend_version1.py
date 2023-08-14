@@ -71,4 +71,5 @@ def format_email_content(email_content):
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    port = int(os.environ.get('PORT', 5000))  # Use PORT if it's there, otherwise default to 5000 for local development
+    app.run(host='0.0.0.0', port=port)
