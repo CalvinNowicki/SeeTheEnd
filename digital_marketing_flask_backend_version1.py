@@ -15,9 +15,16 @@ def process():
     client_email = request.form['client_email']
     marketing_needs = request.form.getlist('marketing_needs')
     
+    # Capture the new product details
+    product_name = request.form['product_name']
+    product_cost = request.form['product_cost']
+    product_use = request.form['product_use']
+
     client = onboard_client(client_name, client_email, marketing_needs)
     services = suggest_services(client)
-    email_content = generate_email_content(client['client_name'])
+    
+    # Update the function call to include product details
+    email_content = generate_email_content(client['client_name'], product_name, product_cost, product_use)
     report = generate_email_report()
     
     return jsonify({
