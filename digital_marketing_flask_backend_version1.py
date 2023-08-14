@@ -11,8 +11,10 @@ def index():
 def process():
     influencer_name = request.form['influencer_name']
     influencer_email = request.form['influencer_email']
+    tiktok_username = request.form['tiktok_username']  # added line
+    instagram_username = request.form['instagram_username']  # added line
 
-    influencer = onboard_influencer(influencer_name, influencer_email)
+    influencer = onboard_influencer(influencer_name, influencer_email, tiktok_username, instagram_username)
     services = suggest_services()
     
     email_content = generate_email_content(influencer['influencer_name'])
@@ -23,10 +25,12 @@ def process():
         'email_content': format_email_content(email_content),
     })
 
-def onboard_influencer(influencer_name, influencer_email):
+def onboard_influencer(influencer_name, influencer_email, tiktok_username, instagram_username):
     return {
         'influencer_name': influencer_name,
         'influencer_email': influencer_email,
+        'tiktok_username': tiktok_username,  # added line
+        'instagram_username': instagram_username,  # added line
     }
 
 def suggest_services():
@@ -42,14 +46,14 @@ def suggest_services():
 
 def generate_email_content(influencer_name):
     email_template = f"""
-Hello {influencer_name},
+Hello,
 
 As an influential figure in the social media realm, it's essential to keep your audience engaged and informed. Our specialized email marketing solutions for influencers can help elevate your brand and deepen the connection with your followers.
 
 Explore our services and discover how we can assist you in reaching new heights.
 
 Best regards,
-Your Marketing Team
+{influencer_name}
     """
     return email_template
 
