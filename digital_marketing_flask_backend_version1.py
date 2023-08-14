@@ -56,10 +56,26 @@ def suggest_services(client_data):
     recommendations = {}
     for need in client_data['marketing_needs']:
         recommendations[marketing_options[need]] = service_recommendations[need]
-        
     return recommendations
-def generate_email_content(client_name):
-    return f"Hello {client_name},\n\nWelcome to our Digital Marketing services!"
+    
+def generate_email_content(client_name, product_name, product_cost, product_use):
+    email_template = f"""
+Hello {client_name},
+
+We are excited to introduce our latest product: {product_name}!
+
+Features:
+- Purpose: {product_use}
+- Price: ${product_cost}
+
+We believe that {product_name} will perfectly cater to your needs and offer unparalleled value. Whether you're looking to {product_use.lower()} or just explore something new, this product is designed with you in mind.
+
+Order yours today and experience the difference!
+
+Warm regards,
+Your Digital Marketing Team
+    """
+    return email_template
 
 def generate_email_report():
     return "This is a sample report content."
