@@ -55,6 +55,48 @@
         .icon {
             margin-right: 5px;
         }
+        .chatbot-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+            height: 400px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f7f7f7;
+            display: grid;
+            grid-template-rows: 50px 1fr 50px;
+        }
+        .chat-header, .chat-input {
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .chat-messages {
+            padding: 10px;
+            overflow-y: auto;
+        }
+        .chat-messages p {
+            margin-bottom: 10px;
+        }
+        #user-input {
+            flex: 1;
+            padding: 5px;
+            border: none;
+            border-radius: 5px;
+        }
+        #send-message {
+            background-color: white;
+            color: #007BFF;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            margin-left: 5px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -113,6 +155,18 @@
         <p id="report_content"></p>
     </div>
 
+    <div class="chatbot-container">
+        <div class="chat-header">
+            <h3>Digital Assistant</h3>
+            <span id="close-chat">X</span>
+        </div>
+        <div class="chat-messages"></div>
+        <div class="chat-input">
+            <input type="text" id="user-input" placeholder="Type a message...">
+            <button id="send-message">Send</button>
+        </div>
+    </div>
+
     <script>
         function submitForm() {
             var formData = new FormData(document.getElementById('marketingForm'));
@@ -133,6 +187,37 @@
                 // Display the results section
                 document.querySelector('.results').style.display = 'block';
             });
+        }
+        const chatMessages = document.querySelector('.chat-messages');
+        const userInput = document.getElementById('user-input');
+        const sendMessage = document.getElementById('send-message');
+        const closeChat = document.getElementById('close-chat');
+
+        sendMessage.addEventListener('click', function() {
+            const userText = userInput.value;
+            if (userText) {
+                chatMessages.innerHTML += `<p><b>You:</b> ${userText}</p>`;
+                chatMessages.scrollTop = chatMessages.scrollHeight; // Scroll to latest message
+                getBotResponse(userText);
+            }
+            userInput.value = ''; // Clear input
+        });
+
+        closeChat.addEventListener('click', function() {
+            document.querySelector('.chatbot-container').style.display = 'none';
+        });
+
+        function getBotResponse(userText) {
+            let botResponse = "Sorry, I don't understand that.";
+            if (userText.includes('hello')) {
+                botResponse = 'Hi there! How can I assist you?';
+            } else if (userText.includes('services')) {
+                botResponse = 'We offer Social Media Marketing, Product Design, Ad Creation, and Email Marketing.';
+            }
+            setTimeout(function() {
+                chatMessages.innerHTML += `<p><b>Bot:</b> ${botResponse}</p>`;
+                chatMessages.scrollTop = chatMessages.scrollHeight; // Scroll to latest message
+            }, 1000); // Delay to simulate real-time interaction
         }
     </script>
 </body>
