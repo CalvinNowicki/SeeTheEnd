@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Marketing Assistant</title>
+    <title>Email Marketing for Social Media Influencers</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -149,41 +150,19 @@
 
 <body>
     <div class="card">
-        <h1><i class="fas fa-robot icon"></i>Digital Marketing Assistant</h1>
+        <h1><i class="fas fa-robot icon"></i>Email Marketing for Social Media Influencers</h1>
 
         <form id="marketingForm">
-            <label for="client_name">Business Name:</label>
-            <input name="client_name" required type="text" id="client_name" placeholder="Enter Business Name">
+            <label for="influencer_name">Influencer Name:</label>
+            <input name="influencer_name" required type="text" id="influencer_name" placeholder="Enter Influencer Name">
 
-            <label for="client_email">Contact Email:</label>
-            <input name="client_email" required type="email" id="client_email" placeholder="Enter Contact Email">
+            <label for="influencer_email">Influencer Email:</label>
+            <input name="influencer_email" required type="email" id="influencer_email" placeholder="Enter Influencer Email">
 
-            <label>Select Marketing Needs:</label>
             <div class="custom-checkbox">
-                <input name="marketing_needs" type="checkbox" value="4" id="social_media">
-                <label for="social_media"><span><i class="fab fa-facebook icon"></i>Social Media Marketing</span></label>
-            </div>
-            <div class="custom-checkbox">
-                <input name="marketing_needs" type="checkbox" value="3" id="product_design">
-                <label for="product_design"><span><i class="fas fa-palette icon"></i>Product Design</span></label>
-            </div>
-            <div class="custom-checkbox">
-                <input name="marketing_needs" type="checkbox" value="2" id="ad_creation">
-                <label for="ad_creation"><span><i class="fas fa-ad icon"></i>Ad Creation</span></label>
-            </div>
-            <div class="custom-checkbox">
-                <input name="marketing_needs" type="checkbox" value="1" id="email_marketing">
+                <input name="marketing_needs" type="checkbox" value="1" id="email_marketing" checked disabled>
                 <label for="email_marketing"><span><i class="fas fa-envelope icon"></i>Email Marketing</span></label>
             </div>
-
-            <label for="product_name">Product Name:</label>
-            <input name="product_name" type="text" id="product_name" placeholder="Enter Product Name">
-
-            <label for="product_cost">Product Cost ($):</label>
-            <input name="product_cost" type="number" step="0.01" id="product_cost" placeholder="Enter Product Cost">
-
-            <label for="product_use">Product Use:</label>
-            <input name="product_use" type="text" id="product_use" placeholder="How is the product used?">
 
             <input type="button" value="Submit" onclick="submitForm()">
         </form>
@@ -191,7 +170,7 @@
 
     <div class="results card">
         <h2>Results</h2>
-        <h3>Client Details</h3>
+        <h3>Influencer Details</h3>
         <p><b>Name:</b> <span id="client_detail_name"></span></p>
         <p><b>Email:</b> <span id="client_detail_email"></span></p>
 
@@ -216,8 +195,8 @@
                 })
                 .then(response => response.json())
                 .then(data => {
-                    document.getElementById('client_detail_name').textContent = data.client.client_name;
-                    document.getElementById('client_detail_email').textContent = data.client.client_email;
+                    document.getElementById('client_detail_name').textContent = data.influencer.influencer_name;
+                    document.getElementById('client_detail_email').textContent = data.influencer.influencer_email;
                     document.getElementById('recommended_services').textContent = data.services;
                     document.getElementById('email_content').textContent = data.email_content;
                     document.getElementById('report_content').textContent = data.report;
