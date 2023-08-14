@@ -180,8 +180,6 @@
         <h3>Email Content</h3>
         <p id="email_content"></p>
 
-        <h3>Report</h3>
-        <p id="report_content"></p>
     </div>
 
     <script>
@@ -199,7 +197,6 @@
                     document.getElementById('client_detail_email').textContent = data.influencer.influencer_email;
                     document.getElementById('recommended_services').textContent = data.services;
                     document.getElementById('email_content').textContent = data.email_content;
-                    document.getElementById('report_content').textContent = data.report;
 
                     // Display the results section
                     document.querySelector('.results').style.display = 'block';
