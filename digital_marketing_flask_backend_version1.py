@@ -16,13 +16,11 @@ def process():
     services = suggest_services()
     
     email_content = generate_email_content(influencer['influencer_name'])
-    report = generate_email_report()
     
     return jsonify({
         'influencer': influencer,
         'services': format_services(services),
         'email_content': format_email_content(email_content),
-        'report': report
     })
 
 def onboard_influencer(influencer_name, influencer_email):
@@ -54,9 +52,6 @@ Best regards,
 Your Marketing Team
     """
     return email_template
-
-def generate_email_report():
-    return "This is a sample report content."
 
 def format_services(services):
     return "\n".join([f"{k}: {', '.join(v)}" for k, v in services.items()])
