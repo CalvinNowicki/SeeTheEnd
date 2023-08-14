@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,7 +36,17 @@
         <input name="marketing_needs" type="checkbox" value="3"> Product Design<br>
         <input name="marketing_needs" type="checkbox" value="2"> Ad Creation<br>
         <input name="marketing_needs" type="checkbox" value="1"> Email Marketing<br><br>
-        
+
+        <!-- Added product details inputs -->
+        <label for="product_name">Product Name:</label>
+        <input name="product_name" type="text" id="product_name"><br><br>
+
+        <label for="product_cost">Product Cost ($):</label>
+        <input name="product_cost" type="number" step="0.01" id="product_cost"><br><br>
+
+        <label for="product_use">Product Use:</label>
+        <input name="product_use" type="text" id="product_use"><br><br>
+
         <input type="button" value="Submit" onclick="submitForm()">
     </form>
 
