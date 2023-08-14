@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Marketing Assistant</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1, h2, h3 {
+            margin-top: 20px;
+        }
+        .results {
+            margin-top: 30px;
+            border: 1px solid #ddd;
+            padding: 20px;
+            display: none;
+            background-color: #f7f7f7;
+        }
+    </style>
+</head>
+<body>
+    <h1>Digital Marketing Assistant</h1>
+    
+    <form id="marketingForm">
+        <label for="client_name">Business Name:</label>
+        <input name="client_name" required type="text" id="client_name"><br><br>
+
+        <label for="client_email">Contact Email:</label>
+        <input name="client_email" required type="email" id="client_email"><br><br>
+
+        <label>Select Marketing Needs:</label><br>
+        <input name="marketing_needs" type="checkbox" value="4"> Social Media Marketing<br>
+        <input name="marketing_needs" type="checkbox" value="3"> Product Design<br>
+        <input name="marketing_needs" type="checkbox" value="2"> Ad Creation<br>
+        <input name="marketing_needs" type="checkbox" value="1"> Email Marketing<br><br>
+        
+        <input type="button" value="Submit" onclick="submitForm()">
+    </form>
+
+    <div class="results">
+        <h2>Results</h2>
+        <h3>Client Details</h3>
+        <p><b>Name:</b> <span id="client_detail_name"></span></p>
+        <p><b>Email:</b> <span id="client_detail_email"></span></p>
+
+        <h3>Recommended Services</h3>
+        <p id="recommended_services"></p>
+
+        <h3>Email Content</h3>
+        <p id="email_content"></p>
+
+        <h3>Report</h3>
+        <p id="report_content"></p>
+    </div>
+
+    <script>
+        function submitForm() {
+            var formData = new FormData(document.getElementById('marketingForm'));
+            
+            // Use AJAX to send data and get response without reloading the page
+            fetch('/process', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('client_detail_name').textContent = data.client.client_name;
+                document.getElementById('client_detail_email').textContent = data.client.client_email;
+                document.getElementById('recommended_services').textContent = data.services;
+                document.getElementById('email_content').textContent = data.email_content;
+                document.getElementById('report_content').textContent = data.report;
+
+                // Display the results section
+                document.querySelector('.results').style.display = 'block';
+            });
+        }
+    </script>
+</body>
+</html>
