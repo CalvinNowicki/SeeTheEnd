@@ -1,6 +1,4 @@
-
 from flask import Flask, render_template, request, jsonify
-import random
 import os
 
 app = Flask(__name__)
@@ -11,76 +9,49 @@ def index():
 
 @app.route('/process', methods=['POST'])
 def process():
-    client_name = request.form['client_name']
-    client_email = request.form['client_email']
-    marketing_needs = request.form.getlist('marketing_needs')
-    
-    # Capture the new product details
-    product_name = request.form['product_name']
-    product_cost = request.form['product_cost']
-    product_use = request.form['product_use']
+    influencer_name = request.form['influencer_name']
+    influencer_email = request.form['influencer_email']
 
-    client = onboard_client(client_name, client_email, marketing_needs)
-    services = suggest_services(client)
+    influencer = onboard_influencer(influencer_name, influencer_email)
+    services = suggest_services()
     
-    # Update the function call to include product details
-    email_content = generate_email_content(client['client_name'], product_name, product_cost, product_use)
+    email_content = generate_email_content(influencer['influencer_name'])
     report = generate_email_report()
     
     return jsonify({
-        'client': client,
+        'influencer': influencer,
         'services': format_services(services),
         'email_content': format_email_content(email_content),
         'report': report
     })
 
-def onboard_client(client_name, client_email, marketing_needs):
+def onboard_influencer(influencer_name, influencer_email):
     return {
-        'client_name': client_name,
-        'client_email': client_email,
-        'marketing_needs': [int(need) for need in marketing_needs]
+        'influencer_name': influencer_name,
+        'influencer_email': influencer_email,
     }
 
-def suggest_services(client_data):
-    marketing_options = {
-        1: "Email Marketing",
-        2: "Ad Creation",
-        3: "Product Design",
-        4: "Social Media Marketing"
-    }
-    
-    service_recommendations = {
-        1: ["Newsletter Campaigns", "Drip Email Campaigns"],
-        2: ["Google Ads", "Facebook Ads"],
-        3: ["3D Product Visualization", "Product Photography"],
-        4: [
-            "Facebook Page Management",
-            "Instagram: Consistent Posting, Use of Hashtags, Engage with Followers, Collaborate with Influencers, Instagram Ads",
-            "TikTok: Create Trending Content, Engage with Audience, Collaborate with TikTok Creators, TikTok Challenges, TikTok Ads"
+def suggest_services():
+    return {
+        "Email Marketing for Influencers": [
+            "Personalized Newsletter Campaigns",
+            "Engagement-driven Drip Email Campaigns",
+            "Collaborative Brand Promotions",
+            "Exclusive Offer Announcements",
+            "Audience Feedback Surveys"
         ]
     }
-    
-    recommendations = {}
-    for need in client_data['marketing_needs']:
-        recommendations[marketing_options[need]] = service_recommendations[need]
-    return recommendations
-    
-def generate_email_content(client_name, product_name, product_cost, product_use):
+
+def generate_email_content(influencer_name):
     email_template = f"""
-Hello Loyal Customer!
+Hello {influencer_name},
 
-We are excited to introduce our latest product: {product_name}!
+As an influential figure in the social media realm, it's essential to keep your audience engaged and informed. Our specialized email marketing solutions for influencers can help elevate your brand and deepen the connection with your followers.
 
-Features:
-- Purpose: {product_use}
-- Price: ${product_cost}
+Explore our services and discover how we can assist you in reaching new heights.
 
-We believe that {product_name} will perfectly cater to your needs and offer unparalleled value. Whether you're looking to {product_use.lower()} or just explore something new, this product is designed with you in mind.
-
-Order yours today and experience the difference!
-
-Warm regards,
-{client_name}
+Best regards,
+Your Marketing Team
     """
     return email_template
 
@@ -93,7 +64,6 @@ def format_services(services):
 def format_email_content(email_content):
     return email_content
 
-
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))  # Use PORT if it's there, otherwise default to 5000 for local development
+    port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
