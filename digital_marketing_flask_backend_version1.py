@@ -48,14 +48,16 @@ def suggest_services():
 
 def generate_email_content(influencer_name):
     email_template = f"""
-Hello,
+Hello {influencer_name},
 
-As an influential figure in the social media realm, it's essential to keep your audience engaged and informed. Our specialized email marketing solutions for influencers can help elevate your brand and deepen the connection with your followers.
+As an influential figure in the social media realm, it's essential to keep your audience engaged and informed.
+
+Our specialized email marketing solutions for influencers can help elevate your brand and deepen the connection with your followers.
 
 Explore our services and discover how we can assist you in reaching new heights.
 
 Best regards,
-{influencer_name}
+SeeTheEndModelling Team
     """
     return email_template
 
