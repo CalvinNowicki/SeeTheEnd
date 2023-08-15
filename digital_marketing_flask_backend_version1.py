@@ -11,10 +11,11 @@ def index():
 def process():
     influencer_name = request.form['influencer_name']
     influencer_email = request.form['influencer_email']
-    tiktok_username = request.form['tiktok_username']  # added line
-    instagram_username = request.form['instagram_username']  # added line
+    tiktok_username = request.form['tiktok_username']
+    instagram_username = request.form['instagram_username']
+    content_type = request.form['content_type']  # added line
 
-    influencer = onboard_influencer(influencer_name, influencer_email, tiktok_username, instagram_username)
+    influencer = onboard_influencer(influencer_name, influencer_email, tiktok_username, instagram_username, content_type)
     services = suggest_services()
     
     email_content = generate_email_content(influencer['influencer_name'])
@@ -25,12 +26,13 @@ def process():
         'email_content': format_email_content(email_content),
     })
 
-def onboard_influencer(influencer_name, influencer_email, tiktok_username, instagram_username):
+def onboard_influencer(influencer_name, influencer_email, tiktok_username, instagram_username, content_type):
     return {
         'influencer_name': influencer_name,
         'influencer_email': influencer_email,
-        'tiktok_username': tiktok_username,  # added line
-        'instagram_username': instagram_username,  # added line
+        'tiktok_username': tiktok_username,
+        'instagram_username': instagram_username,
+        'content_type': content_type  # added line
     }
 
 def suggest_services():
