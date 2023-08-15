@@ -14,47 +14,49 @@
             background-color: #f4f5f7;
             color: #333;
         }
-
+        
         h1, h2, h3 {
             margin-top: 20px;
         }
-
-        form {
+        
+        form, .card, .results {
             background-color: #fff;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s;
         }
-
+        
+        .card:hover {
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+        }
+        
         label {
             display: block;
             margin-bottom: 10px;
             font-weight: 600;
         }
-
+        
         input[type="text"],
         input[type="email"],
         input[type="number"],
-        div {
-            margin-bottom: 20px;
-        }
-
-        input[type="text"],
-        input[type="email"],
-        input[type="number"] {
+        select {
             width: 100%;
             padding: 10px;
             border: 1px solid #ddd;
             border-radius: 5px;
             transition: border-color 0.3s;
+            appearance: none; /* This removes the default dropdown arrow. */
+            background: #fff url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAjElEQVR42mJ8vXnzPwMewDgyFAwMDAwMTICkefPm/8PQ0FAyZMiQMYHl5eX/zMzM/2JiYv5GRkauwMjICP7Hx8dfw8bGBlO6dOl/QGhoqJkzZ45ZWFj4P0FBQf9BQUH/oaGhZ8aMGVuYmJj/BQcHv4ODg/+Hh4d/Gxoa/igoKP4YFhY2ysvLP2JjY/+RmZn5FRUVn1JSUv6ZmZn/AQYD+R4bG/9jY2P/ISEh/xITE/8HBwf/jIyM/w8PD/8FAMgA6ENX4b7aAAAAAElFTkSuQmCC') no-repeat 95% 50%;
         }
-
+        
         input[type="text"]:hover,
         input[type="email"]:hover,
-        input[type="number"]:hover {
+        input[type="number"]:hover,
+        select:hover {
             border-color: #007BFF;
         }
-
+        
         input[type="button"] {
             width: 100%;
             background-color: #007BFF;
@@ -65,99 +67,22 @@
             cursor: pointer;
             transition: background-color 0.3s;
         }
-
+        
         input[type="button"]:hover {
             background-color: #0056b3;
         }
-
+        
         .results {
             margin-top: 30px;
-            background-color: #fff;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
             display: none;
         }
-
+        
         .icon {
             margin-right: 5px;
         }
-
-        /* Card Design */
-        .card {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            transition: box-shadow 0.3s;
-        }
-
-        .card:hover {
-            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
-        }
-
-        /* Custom Checkbox Styles */
-        .custom-checkbox {
-            position: relative;
-            display: inline-block;
-            cursor: pointer;
-            font-weight: normal;
-        }
-
-        .custom-checkbox input[type="checkbox"] {
-            display: none;
-        }
-
-        .custom-checkbox span {
-            position: relative;
-            padding-left: 30px;
-        }
-
-        .custom-checkbox span:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 20px;
-            height: 20px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            background-color: #fff;
-            transition: background-color 0.3s;
-        }
-
-        .custom-checkbox input[type="checkbox"]:checked + span:before {
-            background-color: #007BFF;
-            border-color: #007BFF;
-        }
-
-        .custom-checkbox input[type="checkbox"]:checked + span:after {
-            content: '\\2713';
-            position: absolute;
-            top: 2px;
-            left: 6px;
-            color: #fff;
-            font-size: 14px;
-            font-weight: bold;
-        }
-
-        /* Adjust the width of form fields for better layout */
+        
         form div:nth-child(even) {
             grid-column: 2/3;
-        }
-
-        select {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            transition: border-color 0.3s;
-            appearance: none; /* This removes the default dropdown arrow. Adjust as needed. */
-            background: #fff;
-        }
-
-        select:hover {
-            border-color: #007BFF;
         }
 
     </style>
