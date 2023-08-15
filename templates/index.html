@@ -56,7 +56,8 @@
         input[type="email"],
         input[type="number"],
         select {
-            width: 100%;
+            width: 100%; /* ensures full width */
+            box-sizing: border-box; /* includes padding and border in the element's total width and height */
             padding: 10px 15px;
             border: 1px solid #e0e0e0;
             border-radius: 5px;
@@ -74,7 +75,7 @@
         }
         
         input[type="button"] {
-            width: 100%;
+            width: 100%; /* ensures full width */
             background-color: #007BFF;
             color: white;
             padding: 12px 15px;
