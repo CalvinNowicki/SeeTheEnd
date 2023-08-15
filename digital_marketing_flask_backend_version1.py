@@ -13,7 +13,7 @@ def process():
     influencer_email = request.form['influencer_email']
     tiktok_username = request.form['tiktok_username']
     instagram_username = request.form['instagram_username']
-    content_type = request.form['content_type']  # added line
+    content_type = request.form['content_type']
 
     influencer = onboard_influencer(influencer_name, influencer_email, tiktok_username, instagram_username, content_type)
     services = suggest_services()
@@ -28,16 +28,16 @@ def process():
 
 def onboard_influencer(influencer_name, influencer_email, tiktok_username, instagram_username, content_type):
     return {
-        'influencer_name': influencer_name,
-        'influencer_email': influencer_email,
-        'tiktok_username': tiktok_username,
-        'instagram_username': instagram_username,
-        'content_type': content_type  # added line
+        'Influencer Name': influencer_name,
+        'Influencer Email': influencer_email,
+        'TikTok Username': tiktok_username,
+        'Instagram Username': instagram_username,
+        'Content Type': content_type
     }
 
 def suggest_services():
     return {
-        "Email Marketing for Influencers": [
+        "Services Offered": [
             "Personalized Newsletter Campaigns",
             "Engagement-driven Drip Email Campaigns",
             "Collaborative Brand Promotions",
@@ -48,14 +48,14 @@ def suggest_services():
 
 def generate_email_content(influencer_name):
     email_template = f"""
-Hello,
+Hello {influencer_name},
 
 As an influential figure in the social media realm, it's essential to keep your audience engaged and informed. Our specialized email marketing solutions for influencers can help elevate your brand and deepen the connection with your followers.
 
 Explore our services and discover how we can assist you in reaching new heights.
 
 Best regards,
-{influencer_name}
+Your Dedicated Email Marketing Team
     """
     return email_template
 
