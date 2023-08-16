@@ -4,17 +4,18 @@
 <head>
     <!-- Metadata for character set and responsive design -->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Enhanced viewport settings for mobile optimization -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Email Marketing for Social Media Influencers</title>
     <!-- Link to the Font Awesome icon library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    
+
     <style>
-        
-        body{
+        body {
             background-color: #000;
+            font-family: Arial, sans-serif; /* Setting a default font for consistent appearance */
         }
-        
+
         .main {
             position: fixed;
             top: 50%;
@@ -23,53 +24,15 @@
             width: 1px;
             background-color: #fff;
             border-radius: 50%;
-            box-shadow: 
-                -30vw -40vh 1px 1px #fff, 
-                45vw -25vh 3px 3px #fff, 
-                -40vw 35vh 2px 2px #fff, 
-                35vw 48vh 1px 1px #fff,
-                0vw 20vh 2px 2px #fff,
-                5vw -15vh 3px 3px #fff,
-                -15vw 10vh 2px 2px #fff,
-                20vw -5vh 3px 3px #fff,
-                25vw 15vh 1px 1px #fff,
-                -25vw -20vh 2px 2px #fff,
-                15vw -35vh 1px 1px #fff,
-                -10vw 45vh 3px 3px #fff,
-                10vw -10vh 2px 2px #fff,
-                -45vw -30vh 3px 3px #fff,
-                48vw 40vh 1px 1px #fff,
-                -20vw -48vh 2px 2px #fff,
-                0vw 30vh 2px 2px #fff,
-                10vw 10vh 3px 3px #fff,
-                -30vw -10vh 1px 1px #fff,
-                15vw 5vh 2px 2px #fff,
-                -5vw -25vh 3px 3px #fff,
-                -15vw 25vh 2px 2px #fff,
-                40vw 20vh 1px 1px #fff,
-                -5vw 40vh 3px 3px #fff,
-                -35vw -35vh 2px 2px #fff, 
-                40vw -20vh 1px 1px #fff, 
-                -20vw 20vh 3px 3px #fff, 
-                25vw 35vh 2px 2px #fff,
-                5vw 40vh 1px 1px #fff,
-                -10vw -35vh 3px 3px #fff,
-                15vw 30vh 2px 2px #fff,
-                25vw -10vh 3px 3px #fff,
-                -20vw 15vh 2px 2px #fff,
-                -35vw -15vh 1px 1px #fff,
-                45vw 25vh 3px 3px #fff,
-                -5vw -10vh 2px 2px #fff,
-                -25vw 35vh 3px 3px #fff;
             animation: zoom 10s alternate infinite;
             z-index: -1;
         }
 
         @keyframes zoom {
-            0%{
+            0% {
                 transform: scale(1);
             }
-            100%{
+            100% {
                 transform: scale(1.25);
             }
         }
@@ -83,7 +46,6 @@
             margin-right: 5px;
         }
 
-        /* Styling for the card that contains the form */
         .card {
             max-width: 600px;
             margin: 20px auto;
@@ -93,28 +55,26 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: box-shadow 0.3s;
         }
-        
+
         .card:hover {
             box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
         }
 
-        /* Styling for the form elements inside the card */
         form {
             display: grid;
             grid-gap: 20px;
         }
-        
+
         label {
             font-weight: 600;
         }
-        
-        /* Styling for various input fields */
+
         input[type="text"],
         input[type="email"],
         input[type="number"],
         select {
-            width: 100%; /* ensures full width */
-            box-sizing: border-box; /* includes padding and border in the element's total width and height */
+            width: 100%;
+            box-sizing: border-box;
             padding: 10px 15px;
             border: 1px solid #e0e0e0;
             border-radius: 5px;
@@ -123,7 +83,6 @@
             appearance: none;
         }
 
-        /* Focus effect for input fields */
         input[type="text"]:focus,
         input[type="email"]:focus,
         input[type="number"]:focus,
@@ -131,10 +90,9 @@
             border-color: #007BFF;
             box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
         }
-        
-        /* Styling for the submit button */
+
         input[type="button"] {
-            width: 100%; /* ensures full width */
+            width: 100%;
             background-color: #007BFF;
             color: white;
             padding: 12px 15px;
@@ -144,116 +102,112 @@
             transition: background-color 0.3s;
             font-size: 16px;
         }
-        
+
         input[type="button"]:hover {
             background-color: #0056b3;
         }
 
-        /* Styling for the results section which is initially hidden */
         .results {
             margin-top: 30px;
             display: none;
         }
 
-        /* Styling for the futuristic "SeeTheEnd" heading */
         .futuristic-heading {
             text-align: center;
             font-size: 64px;
             margin-bottom: 40px;
             color: #007BFF;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
             background: -webkit-linear-gradient(left, #007BFF, #00C9FF);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        
+
+        /* Media queries for mobile optimization */
+        @media (max-width: 768px) {
+            .futuristic-heading {
+                font-size: 48px; /* Reduce font size for mobile */
+                margin-bottom: 20px;
+            }
+
+            h1, h2, h3 {
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+
+            .card {
+                margin: 10px 5px; /* Reduce margin for mobile */
+                padding: 15px; /* Reduce padding for mobile */
+            }
+
+            /* Optimize form elements for mobile */
+            input[type="text"],
+            input[type="email"],
+            input[type="number"],
+            select {
+                font-size: 14px;
+                padding: 8px 12px;
+            }
+
+            input[type="button"] {
+                font-size: 14px;
+                padding: 10px 12px;
+            }
+        }
     </style>
 </head>
 
 <body>
-
     <div class="main"></div>
-    
-    <!-- The fancy and futuristic heading "SeeTheEnd" -->
     <h1 class="futuristic-heading">SeeTheEnd</h1>
-    
-    <!-- The main content card containing the form -->
     <div class="card">
-        <!-- Title with icon -->
         <h1><i class="fas fa-globe fa-spin" style="color: #000000"></i> Email Marketing for Social Media Influencers</h1>
-
-        <!-- The form for collecting influencer data -->
         <form id="marketingForm">
-            <!-- Input fields and labels for influencer details -->
             <label for="influencer_name">Influencer Name:</label>
             <input name="influencer_name" required type="text" id="influencer_name" placeholder="Enter Influencer Name">
-
             <label for="influencer_email">Influencer Email:</label>
             <input name="influencer_email" required type="email" id="influencer_email" placeholder="Enter Influencer Email">
-
-            <!-- New input fields for social media handles -->
             <label for="tiktok_username">TikTok Username:</label>
             <input name="tiktok_username" type="text" id="tiktok_username" placeholder="Enter TikTok Username">
-
             <label for="instagram_username">Instagram Username:</label>
             <input name="instagram_username" type="text" id="instagram_username" placeholder="Enter Instagram Username">
-
-            <!-- Dropdown for selecting content type -->
             <label for="content_type">What type of content are you focused on?</label>
             <select name="content_type" id="content_type">
-                <!-- Various options for content types -->
                 <option value="fitness">Fitness</option>
                 <option value="fashion">Fashion</option>
                 <option value="healthcare">Healthcare</option>
-                <!-- ... other options ... -->
             </select>
-
-            <!-- Submit button -->
             <input type="button" value="Submit" onclick="submitForm()">
         </form>
     </div>
-
-    <!-- Section to display the results after form submission -->
     <div class="results card">
-        <!-- Sections for influencer details, recommended services, and email content -->
         <h2>Results</h2>
         <h3>Influencer Details</h3>
         <p><b>Name:</b> <span id="client_detail_name"></span></p>
         <p><b>Email:</b> <span id="client_detail_email"></span></p>
-        <!-- Displaying the social media handles -->
         <p><b>TikTok:</b> <span id="client_detail_tiktok"></span></p>
         <p><b>Instagram:</b> <span id="client_detail_instagram"></span></p>
-
         <h3>Recommended Services</h3>
         <p id="recommended_services"></p>
-
         <h3>Email Content</h3>
         <p id="email_content"></p>
-
     </div>
 
     <script>
-        /* JavaScript function to handle the form submission */
         function submitForm() {
-            // Collect form data
             var formData = new FormData(document.getElementById('marketingForm'));
-
-            // Use AJAX to send data to the server and receive the response without page reload
             fetch('/process', {
                     method: 'POST',
                     body: formData
                 })
                 .then(response => response.json())
                 .then(data => {
-                    // Update the results section with the response data
                     document.getElementById('client_detail_name').textContent = data.influencer.influencer_name;
                     document.getElementById('client_detail_email').textContent = data.influencer.influencer_email;
                     document.getElementById('client_detail_tiktok').textContent = data.influencer.tiktok_username;
                     document.getElementById('client_detail_instagram').textContent = data.influencer.instagram_username;
                     document.getElementById('recommended_services').textContent = data.services;
                     document.getElementById('email_content').textContent = data.email_content;
-
-                    // Display the results section
                     document.querySelector('.results').style.display = 'block';
                 });
         }
