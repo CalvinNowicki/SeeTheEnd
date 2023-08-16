@@ -124,84 +124,10 @@
                 background-position: 0% 50%;
             }
         }
-
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            overflow: hidden;
-        }
-        
-        .lightning {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 2px;
-            height: 100px;
-            background-color: rgba(255, 255, 255, 0.7);
-            animation: flash 1s infinite alternate, moveX 3s infinite alternate, moveY 2s infinite alternate;
-        }
-        
-        .lightning::before,
-        .lightning::after {
-            content: "";
-            position: absolute;
-            top: 20px;
-            left: 0;
-            width: 2px;
-            height: 60px;
-            background-color: rgba(255, 255, 255, 0.7);
-        }
-        
-        .lightning::before {
-            transform: skewX(45deg);
-            transform-origin: bottom left;
-        }
-        
-        .lightning::after {
-            transform: skewX(-45deg);
-            transform-origin: bottom right;
-        }
-        
-        @keyframes flash {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-        
-        @keyframes moveX {
-            from {
-                left: 10%;
-            }
-            to {
-                left: 90%;
-            }
-        }
-        
-        @keyframes moveY {
-            from {
-                top: 10%;
-            }
-            to {
-                top: 80%;
-            }
-        }
     </style>
 </head>
 
 <body>
-    <div class="overlay">
-        <div class="lightning"></div>
-        <div class="lightning" style="animation-delay: 1s;"></div>
-        <div class="lightning" style="animation-delay: 1.5s;"></div>
-    </div>
-    
     <!-- The main content card containing the form -->
     <div class="card">
         <!-- Title with icon -->
