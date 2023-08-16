@@ -161,6 +161,21 @@
             -webkit-text-fill-color: transparent;
         }
 
+        .results .section {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+        }
+    
+        .results .section h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #007BFF;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }        
+
         /* Media queries for mobile optimization */
         @media (max-width: 768px) {
             .futuristic-heading {
@@ -223,15 +238,21 @@
     </div>
     <div class="results card">
         <h2>Results</h2>
-        <h3>Influencer Details</h3>
-        <p><b>Name:</b> <span id="client_detail_name"></span></p>
-        <p><b>Email:</b> <span id="client_detail_email"></span></p>
-        <p><b>TikTok:</b> <span id="client_detail_tiktok"></span></p>
-        <p><b>Instagram:</b> <span id="client_detail_instagram"></span></p>
-        <h3>Recommended Services</h3>
-        <p id="recommended_services"></p>
-        <h3>Email Content</h3>
-        <p id="email_content"></p>
+        <div class="section">
+            <h3>Influencer Details</h3>
+            <p><b>Name:</b> <span id="client_detail_name"></span></p>
+            <p><b>Email:</b> <span id="client_detail_email"></span></p>
+            <p><b>TikTok:</b> <span id="client_detail_tiktok"></span></p>
+            <p><b>Instagram:</b> <span id="client_detail_instagram"></span></p>
+        </div>
+        <div class="section">
+            <h3>Recommended Services</h3>
+            <p id="recommended_services"></p>
+        </div>
+        <div class="section">
+            <h3>Email Content</h3>
+            <p id="email_content"></p>
+        </div>
     </div>
 
     <script>
