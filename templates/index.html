@@ -8,6 +8,29 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     
     <style>
+        /* Animated Gradient Background */
+        @keyframes gradientBackground {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 40px;
+            background: linear-gradient(270deg, #ff7a7a, #ffa07a, #ffd27a, #e1ff7a, #a1ff7a, #7affd2, #7ae1ff, #7aa1ff, #d27aff);
+            background-size: 1800% 1800%;
+            animation: gradientBackground 25s ease infinite;
+            color: #333;
+            line-height: 1.5;
+        }
         /* General Styles */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
