@@ -10,29 +10,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     
     <style>
-        /* Styling for the animated gradient background */
+        /* Galaxy Gradient Background */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 40px;
-            background: linear-gradient(270deg, #808080, #000000);
-            background-size: 200% 100%;
-            animation: gradientBackground 10s ease infinite;
-            color: #333;
-            line-height: 1.5;
-        }
-        
-        /* Animation keyframes for the gradient background */
-        @keyframes gradientBackground {
-            0% {
-                background-position: 100% 50%;
-            }
-            50% {
-                background-position: 0% 50%;
-            }
-            100% {
-                background-position: 100% 50%;
-            }
+            background: radial-gradient(circle, rgba(20, 20, 70, 1) 0%, rgba(0, 0, 0, 1) 90%),
+                        radial-gradient(circle, transparent, transparent 40%, rgba(255, 255, 255, 0.6) 45%, transparent 50%, transparent 70%, rgba(255, 255, 255, 0.4) 75%, transparent 80%),
+                        radial-gradient(circle, rgba(255, 0, 0, 0.2) 10%, transparent 15%),
+                        radial-gradient(circle, rgba(0, 255, 0, 0.2) 15%, transparent 20%),
+                        radial-gradient(circle, rgba(0, 0, 255, 0.2) 20%, transparent 25%);
+            background-size: cover, 10px 10px, cover, cover, cover;
+            background-position: center, center, 20% 40%, 80% 60%, 40% 80%;
         }
         
         /* General styles for body, headings, and icons */
