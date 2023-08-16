@@ -16,11 +16,25 @@
             margin: 0;
             padding: 40px;
             background: linear-gradient(270deg, #808080, #000000);
-            background-size: 100% 100%;
+            background-size: 200% 100%;
             animation: gradientBackground 10s ease infinite;
             color: #333;
             line-height: 1.5;
         }
+        
+        /* Animation keyframes for the gradient background */
+        @keyframes gradientBackground {
+            0% {
+                background-position: 100% 50%;
+            }
+            50% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+        
         /* General styles for body, headings, and icons */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -111,19 +125,7 @@
             margin-top: 30px;
             display: none;
         }
-
-        /* Animation keyframes for the gradient background */
-        @keyframes gradientBackground {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
-        }
+        
     </style>
 </head>
 
