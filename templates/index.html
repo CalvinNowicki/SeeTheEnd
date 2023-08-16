@@ -15,7 +15,7 @@
             background-color: #000;
         }
         
-        .main{
+        .main {
             position: fixed;
             top: 50%;
             left: 50%;
@@ -23,8 +23,9 @@
             width: 1px;
             background-color: #fff;
             border-radius: 50%;
-            box-shadow: -24vw -44vh 2px 2px #fff,38vw -4vh 0px 0px #fff,-20vw -48vh 1px 2px #fff,-39vw 38vh 3px 1px #fff,-42vw -11vh 0px 3px #fff,12vw 15vh 3px 3px #fff,42vw 6vh 3px 2px #fff,-8vw 9vh 0px 2px #fff,34vw -38vh 1px 0px #fff,-17vw 45vh 3px 1px #fff,22vw -36vh 3px 2px #fff,-42vw 1vh 1px 0px #fff;
+            box-shadow: -12vw -22vh 2px 2px #fff, 19vw -2vh 0px 0px #fff, -10vw -24vh 1px 2px #fff, -19.5vw 19vh 3px 1px #fff, -21vw -5.5vh 0px 3px #fff, 6vw 7.5vh 3px 3px #fff, 21vw 3vh 3px 2px #fff, -4vw 4.5vh 0px 2px #fff, 17vw -19vh 1px 0px #fff, -8.5vw 22.5vh 3px 1px #fff, 11vw -18vh 3px 2px #fff, -21vw 0.5vh 1px 0px #fff;
             animation: zoom 10s alternate infinite;
+            z-index: -1; /* Ensures it's behind everything else */
         }
         
         @keyframes zoom {
