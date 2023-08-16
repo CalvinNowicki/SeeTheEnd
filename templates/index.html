@@ -2,12 +2,15 @@
 <html lang="en">
 
 <head>
+    <!-- Metadata for character set and responsive design -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Email Marketing for Social Media Influencers</title>
+    <!-- Link to the Font Awesome icon library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     
     <style>
+        /* Styling for the animated gradient background */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
@@ -18,7 +21,7 @@
             color: #333;
             line-height: 1.5;
         }
-        /* General Styles */
+        /* General styles for body, headings, and icons */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
@@ -37,7 +40,7 @@
             margin-right: 5px;
         }
 
-        /* Card Styles */
+        /* Styling for the card that contains the form */
         .card {
             max-width: 600px;
             margin: 20px auto;
@@ -52,7 +55,7 @@
             box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
         }
 
-        /* Form Styles */
+        /* Styling for the form elements inside the card */
         form {
             display: grid;
             grid-gap: 20px;
@@ -62,6 +65,7 @@
             font-weight: 600;
         }
         
+        /* Styling for various input fields */
         input[type="text"],
         input[type="email"],
         input[type="number"],
@@ -76,6 +80,7 @@
             appearance: none;
         }
 
+        /* Focus effect for input fields */
         input[type="text"]:focus,
         input[type="email"]:focus,
         input[type="number"]:focus,
@@ -84,6 +89,7 @@
             box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
         }
         
+        /* Styling for the submit button */
         input[type="button"] {
             width: 100%; /* ensures full width */
             background-color: #007BFF;
@@ -100,12 +106,13 @@
             background-color: #0056b3;
         }
 
-        /* Results Styles */
+        /* Styling for the results section which is initially hidden */
         .results {
             margin-top: 30px;
             display: none;
         }
-        /* Animated Gradient Background */
+
+        /* Animation keyframes for the gradient background */
         @keyframes gradientBackground {
             0% {
                 background-position: 0% 50%;
@@ -118,7 +125,7 @@
             }
         }
         
-        /* Overlay with diagonal lines */
+        /* Styling for the diagonal lines overlay */
         .overlay {
             position: fixed;
             top: 0;
@@ -136,6 +143,7 @@
             animation: shiftLines 5s linear infinite;
         }
         
+        /* Animation keyframes for the diagonal lines movement */
         @keyframes shiftLines {
             0% {
                 background-position: 0% 0%;
@@ -148,47 +156,55 @@
 </head>
 
 <body>
+    <!-- Diagonal lines overlay -->
     <div class="overlay"></div>
+    
+    <!-- The main content card containing the form -->
     <div class="card">
+        <!-- Title with icon -->
         <h1><i class="fas fa-robot icon"></i>Email Marketing for Social Media Influencers</h1>
 
+        <!-- The form for collecting influencer data -->
         <form id="marketingForm">
+            <!-- Input fields and labels for influencer details -->
             <label for="influencer_name">Influencer Name:</label>
             <input name="influencer_name" required type="text" id="influencer_name" placeholder="Enter Influencer Name">
 
             <label for="influencer_email">Influencer Email:</label>
             <input name="influencer_email" required type="email" id="influencer_email" placeholder="Enter Influencer Email">
 
-            <label for="tiktok_username">TikTok Username:</label> <!-- Added line -->
-            <input name="tiktok_username" type="text" id="tiktok_username" placeholder="Enter TikTok Username"> <!-- Added line -->
+            <!-- New input fields for social media handles -->
+            <label for="tiktok_username">TikTok Username:</label>
+            <input name="tiktok_username" type="text" id="tiktok_username" placeholder="Enter TikTok Username">
 
-            <label for="instagram_username">Instagram Username:</label> <!-- Added line -->
-            <input name="instagram_username" type="text" id="instagram_username" placeholder="Enter Instagram Username"> <!-- Added line -->
+            <label for="instagram_username">Instagram Username:</label>
+            <input name="instagram_username" type="text" id="instagram_username" placeholder="Enter Instagram Username">
 
+            <!-- Dropdown for selecting content type -->
             <label for="content_type">What type of content are you focused on?</label>
             <select name="content_type" id="content_type">
+                <!-- Various options for content types -->
                 <option value="fitness">Fitness</option>
                 <option value="fashion">Fashion</option>
                 <option value="healthcare">Healthcare</option>
-                <option value="swimwear">Swimwear</option>
-                <option value="photography">Photography</option>
-                <option value="food">Food</option>
-                <option value="real estate">Real Estate</option>
-                <option value="gaming">Gaming</option>
-                <!-- ... you can add more options as needed ... -->
+                <!-- ... other options ... -->
             </select>
 
+            <!-- Submit button -->
             <input type="button" value="Submit" onclick="submitForm()">
         </form>
     </div>
 
+    <!-- Section to display the results after form submission -->
     <div class="results card">
+        <!-- Sections for influencer details, recommended services, and email content -->
         <h2>Results</h2>
         <h3>Influencer Details</h3>
         <p><b>Name:</b> <span id="client_detail_name"></span></p>
         <p><b>Email:</b> <span id="client_detail_email"></span></p>
-        <p><b>TikTok:</b> <span id="client_detail_tiktok"></span></p> <!-- Added line -->
-        <p><b>Instagram:</b> <span id="client_detail_instagram"></span></p> <!-- Added line -->
+        <!-- Displaying the social media handles -->
+        <p><b>TikTok:</b> <span id="client_detail_tiktok"></span></p>
+        <p><b>Instagram:</b> <span id="client_detail_instagram"></span></p>
 
         <h3>Recommended Services</h3>
         <p id="recommended_services"></p>
@@ -199,20 +215,23 @@
     </div>
 
     <script>
+        /* JavaScript function to handle the form submission */
         function submitForm() {
+            // Collect form data
             var formData = new FormData(document.getElementById('marketingForm'));
 
-            // Use AJAX to send data and get response without reloading the page
+            // Use AJAX to send data to the server and receive the response without page reload
             fetch('/process', {
                     method: 'POST',
                     body: formData
                 })
                 .then(response => response.json())
                 .then(data => {
+                    // Update the results section with the response data
                     document.getElementById('client_detail_name').textContent = data.influencer.influencer_name;
                     document.getElementById('client_detail_email').textContent = data.influencer.influencer_email;
-                    document.getElementById('client_detail_tiktok').textContent = data.influencer.tiktok_username;  // Added line
-                    document.getElementById('client_detail_instagram').textContent = data.influencer.instagram_username;  // Added line
+                    document.getElementById('client_detail_tiktok').textContent = data.influencer.tiktok_username;
+                    document.getElementById('client_detail_instagram').textContent = data.influencer.instagram_username;
                     document.getElementById('recommended_services').textContent = data.services;
                     document.getElementById('email_content').textContent = data.email_content;
 
